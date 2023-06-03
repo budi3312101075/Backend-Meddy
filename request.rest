@@ -1,0 +1,74 @@
+//API Create a user
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "password": "admin",
+    "confPassword": "admin",
+    "role": "admin"
+}
+
+###
+//API Get all users
+GET http://localhost:5000/users
+
+
+###
+//API Get single Data users ambil uuid
+GET http://localhost:5000/users/af7e0f88-c858-485f-88dd-9f59c1b4e063
+
+
+//upadate user
+###
+PATCH  http://localhost:5000/users/aa0bf92d-1cf8-4b69-a2fc-8fee1ee9c05a
+Content-Type: application/json
+
+{
+    "name": "Prayoga",
+    "email": "prayogabudi@gmail.com",
+    "password": "prayogabudi",
+    "confPassword": "prayogabudi",
+    "role": "apoteker"
+}
+
+
+###
+//deleted user
+DELETE http://localhost:5000/users/af7e0f88-c858-485f-88dd-9f59c1b4e063
+
+
+###
+//LOGIN USER (sebagai admin)
+// kalau login sebagai admin kita dapat crud data suer
+// karena yang diperbolehkan untuk crud hanya admin yang di atur pada middelware
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+//LOGIN USER (sebagai apoteker)
+// kalau login sebagai apoteker kita tidak dapat mengakses data user
+// dikarenakan data user hanya dapat diakses pada admin yang di atur pada middelware
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "prayogabudi@gmail.com",
+    "password": "prayogabudi"
+}
+
+
+###
+//session login
+GET http://localhost:5000/me
+
+
+###
+//logout
+DELETE http://localhost:5000/logout
