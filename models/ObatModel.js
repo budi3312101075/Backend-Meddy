@@ -9,8 +9,16 @@ const Obat = db.define('obat',{
         type: DataTypes.STRING,
         defaultValue: DataTypes.UUIDV4,
         allowNul: false,
+        primaryKey: true,
         validate:{
             notEmpty: true
+        }
+    },
+    gambar:{
+        type: DataTypes.STRING,
+        allowNul: false,
+        validate:{
+            notEmpty: true,
         }
     },
     name:{
@@ -28,8 +36,29 @@ const Obat = db.define('obat',{
             notEmpty: true,
         }
     },
+    komposisi:{
+        type: DataTypes.STRING,
+        allowNul: false,
+        validate:{
+            notEmpty: true,
+        }
+    },
+    kegunaan:{
+        type: DataTypes.STRING,
+        allowNul: false,
+        validate:{
+            notEmpty: true,
+        }
+    },
+    efek:{
+        type: DataTypes.STRING,
+        allowNul: false,
+        validate:{
+            notEmpty: true,
+        }
+    },
     userId:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNul: false,
         validate:{
             notEmpty: true,

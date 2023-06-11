@@ -34,7 +34,7 @@ app.use(session({
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: `http://localhost:${process.env.APP_PORT}`
 }));
 app.use(express.json());
 app.use(UserRoute);
@@ -44,5 +44,5 @@ app.use(AuthRoute);
 // store.sync();
 
 app.listen(process.env.APP_PORT, ()=>{
-    console.log('server up and running...');
+    console.log(`http://localhost:${process.env.APP_PORT}`);
 })

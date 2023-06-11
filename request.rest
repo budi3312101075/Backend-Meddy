@@ -3,12 +3,14 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "admin",
-    "email": "admin@gmail.com",
-    "password": "admin",
-    "confPassword": "admin",
-    "role": "admin"
+    "id": 3312101073,
+    "name": "apotekerq",
+    "email": "apotekerq@gmail.com",
+    "password": "apotekerq",
+    "confPassword": "apotekerq",
+    "role": "apoteker"
 }
+
 
 ###
 //API Get all users
@@ -17,26 +19,26 @@ GET http://localhost:5000/users
 
 ###
 //API Get single Data users ambil uuid
-GET http://localhost:5000/users/af7e0f88-c858-485f-88dd-9f59c1b4e063
+GET http://localhost:5000/users/6c4d0262-97ec-4dcc-b175-b92b638c381b
 
 
 //upadate user
 ###
-PATCH  http://localhost:5000/users/aa0bf92d-1cf8-4b69-a2fc-8fee1ee9c05a
+PATCH  http://localhost:5000/users/50e8493e-2b1e-4aca-8d1a-3b8ee9acf4a8
 Content-Type: application/json
 
 {
-    "name": "Prayoga",
-    "email": "prayogabudi@gmail.com",
-    "password": "prayogabudi",
-    "confPassword": "prayogabudi",
+    "name": "apotek143",
+    "email": "apotek143@gmail.com",
+    "password": "apotek143",
+    "confPassword": "apotek143",
     "role": "apoteker"
 }
 
 
 ###
 //deleted user
-DELETE http://localhost:5000/users/af7e0f88-c858-485f-88dd-9f59c1b4e063
+DELETE http://localhost:5000/users/359105d5-7aa0-4d7b-8e84-afa22aae01cf
 
 
 ###
@@ -58,10 +60,14 @@ Content-Type: application/json
 POST http://localhost:5000/login
 Content-Type: application/json
 
-{
-    "email": "prayogabudi@gmail.com",
-    "password": "prayogabudi"
-}
+# {
+#     "email": "apotek143@gmail.com",
+#     "password": "apotek143"
+# }
+ {
+    "email": "apoteker@gmail.com",
+     "password": "apoteker"
+ }
 
 
 ###
@@ -72,3 +78,19 @@ GET http://localhost:5000/me
 ###
 //logout
 DELETE http://localhost:5000/logout
+
+
+###
+//get data obat all
+GET http://localhost:5000/obat
+
+
+###
+//get data berdasarkan uuid
+GET http://localhost:5000/obat/4bea3853-5ed1-47e7-9d45-5a8a027b8a7a
+
+
+###
+//menghapus data
+DELETE http://localhost:5000/obat/310f6d5f-0062-486c-838f-ebed663c0606
+
