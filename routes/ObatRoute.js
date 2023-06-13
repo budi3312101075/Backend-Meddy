@@ -13,8 +13,8 @@ const router = express.Router();
 
 router.get('/obat', verifyUser, getObat);
 router.get('/obat/:id',verifyUser, getObatById);
-router.post('/obat', imageFilter, createObat);
-router.patch('/obat/:id', updateObat);
+router.post('/obat',verifyUser, imageFilter, createObat);
+router.patch('/obat/:id',verifyUser, updateObat);
 router.delete('/obat/:id',verifyUser, deleteObat);
 
 export default router;

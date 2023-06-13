@@ -99,7 +99,7 @@ export const updateObat = async(req, res) => {
   //       where:{
   //         uuid: obat.uuid 
   //       }
-  //     });
+  //     }); 
   //   }else{
   //     if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
   //     await Obat.update({name, jenis, komposisi, kegunaan, efek},{
@@ -130,10 +130,11 @@ try {
         }
       });
     }else{
-      await Obat.destroy({
-        where:{
-          uuid: obat.uuid
-        }
+          if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
+          await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+            where:{
+              [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
+            }
       });
     }
     res.status(200).json({msg: "obat sukses dihapus"});

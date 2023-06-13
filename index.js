@@ -6,7 +6,8 @@ import db from "./config/Database.js"
 import SequelizeStore from "connect-session-sequelize";
 import UserRoute from "./routes/UserRoute.js";
 import ObatRoute from "./routes/ObatRoute.js";
-import AuthRoute from "./routes/AuthRoute.js"
+import AuthRoute from "./routes/AuthRoute.js";
+import BeritaRoute from "./routes/BeritaRoute.js";
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ app.use(express.json());
 app.use(UserRoute);
 app.use(ObatRoute);
 app.use(AuthRoute);
+app.use(BeritaRoute);
 
 // store.sync();
 

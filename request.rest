@@ -64,6 +64,7 @@ Content-Type: application/json
 #     "email": "apotek143@gmail.com",
 #     "password": "apotek143"
 # }
+
  {
     "email": "apoteker@gmail.com",
      "password": "apoteker"
@@ -87,10 +88,25 @@ GET http://localhost:5000/obat
 
 ###
 //get data berdasarkan uuid
-GET http://localhost:5000/obat/4bea3853-5ed1-47e7-9d45-5a8a027b8a7a
+GET http://localhost:5000/obat/e528852f-be49-4918-a7ec-6cb8a65b5466
 
 
 ###
-//menghapus data
-DELETE http://localhost:5000/obat/310f6d5f-0062-486c-838f-ebed663c0606
+//menghapus data obat
+DELETE http://localhost:5000/obat/4bea3853-5ed1-47e7-9d45-5a8a027b8a7a
+
+
+###
+//get berita all
+GET http://localhost:5000/berita
+
+
+###
+//get berita byid
+GET http://localhost:5000/berita/7d59e76e-107d-4272-89ba-fe7e2d5744d8
+
+
+###
+//menghapus data berita
+DELETE http://localhost:5000/berita/7d59e76e-107d-4272-89ba-fe7e2d5744d8
 
