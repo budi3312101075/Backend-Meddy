@@ -9,6 +9,9 @@ export const getObat = async(req, res) => {
     if(req.role === "admin"){
       response = await Obat.findAll({
         attributes:['uuid', 'gambar', 'name', 'jenis','komposisi','kegunaan','efek'],
+        // include:[{
+        //   model:Users
+        // }]
       });
     }else{
       response = await Obat.findAll({
@@ -16,6 +19,9 @@ export const getObat = async(req, res) => {
         where:{
           userId: req.session.userId
         },
+        // include:[{
+        //   model:Users
+        // }]
       });
     }
     res.status(200).json(response);
@@ -86,32 +92,33 @@ export const createObat = async (req, res) => {
   };
 
 export const updateObat = async(req, res) => {
-  // try {
-  //   const obat = await Obat.findOne({
-  //     where:{
-  //       uuid: req.params.id
-  //     }
-  //   });
-  //   if(!obat) return res.status(404).json({msg:"data tidak ditemukan"});
-  //   const { name, jenis, komposisi, kegunaan, efek } = req.body;
-  //   if(req.role === "admin"){
-  //     await Obat.update({name, jenis, komposisi, kegunaan, efek},{
-  //       where:{
-  //         uuid: obat.uuid 
-  //       }
-  //     }); 
-  //   }else{
-  //     if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
-  //     await Obat.update({name, jenis, komposisi, kegunaan, efek},{
-  //       where:{
-  //         [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
-  //       }
-  //     });
-  //   }
-  //   res.status(200).json({msg: "obat sukses diupdate"});
-  // } catch (error) {
-  //   res.status(500).json({msg: error.message});
-  // }
+  try {
+    const obat = await Obat.findOne({
+      where:{
+        uuid: req.params.id
+      }
+    });
+
+    if(!obat) return res.status(404).json({msg:"data tidak ditemukan"});
+    const { name, jenis, komposisi, kegunaan, efek } = req.body;
+    if(req.role === "admin"){
+      await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+        where:{
+          uuid: obat.uuid 
+        }
+      }); 
+    }else{
+      if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
+      await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+        where:{
+          [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
+        }
+      });
+    }
+    res.status(200).json({msg: "obat sukses diupdate"});
+  } catch (error) {
+    res.status(500).json({msg: error.message});
+  }
 }
 
 export const deleteObat = async(req, res) => {
@@ -143,5 +150,27 @@ try {
   }
 }
 
+export const getObatAll = async(req, res) =>{
+  try {
+      const response = await Obat.findAll();
+      res.status(200).json(response);
+  } catch (error) {
+      console.log(error.message);
+  }
+}
+
+
+export const getObatAllById = async(req, res) =>{
+  try {
+      const response = await Obat.findOne({
+          where:{
+            uuid: req.params.id
+          }
+      });
+      res.status(200).json(response);
+  } catch (error) {
+      console.log(error.message);
+  }
+}
 
 

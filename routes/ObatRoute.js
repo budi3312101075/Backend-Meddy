@@ -4,13 +4,17 @@ import {
     getObatById,
     createObat,
     updateObat,
-    deleteObat
+    deleteObat,
+    getObatAll,
+    getObatAllById
 } from "../controllers/Obat.js";
 import { verifyUser } from "../middleware/AuthUser.js";
 import imageFilter from "../middleware/multer.js"
 
 const router = express.Router();
 
+router.get('/obats', getObatAll);
+router.get('/obats/:id', getObatAllById);
 router.get('/obat', verifyUser, getObat);
 router.get('/obat/:id',verifyUser, getObatById);
 router.post('/obat',verifyUser, imageFilter, createObat);

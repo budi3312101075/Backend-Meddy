@@ -113,5 +113,24 @@ export const deleteBerita = async(req, res) => {
       }
 }
 
+export const getBeritaAll = async(req, res) =>{
+  try {
+      const response = await Berita.findAll();
+      res.status(200).json(response);
+  } catch (error) {
+      console.log(error.message);
+  }
+}
 
-
+export const getBeritaAllById = async(req, res) =>{
+  try {
+      const response = await Berita.findOne({
+          where:{
+            uuid: req.params.id
+          }
+      });
+      res.status(200).json(response);
+  } catch (error) {
+      console.log(error.message);
+  }
+}
