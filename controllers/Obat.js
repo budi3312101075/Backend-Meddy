@@ -66,7 +66,7 @@ export const createObat = async (req, res) => {
   }
   const {originalname : gambar, size} = req.file;
   
-    const { name, jenis, komposisi, kegunaan, efek } = req.body;
+    const { name, deskripsi, jenis, komposisi, kegunaan, efek } = req.body;
     const fileSize = size;
     const imageUrl = `${process.cwd()}\\images\\${gambar}`;
     if (fileSize > 5000000) {
@@ -76,6 +76,7 @@ export const createObat = async (req, res) => {
     try {
       await Obat.create({
         name: name,
+        deskripsi: deskripsi,
         gambar: gambar,
         jenis: jenis,
         komposisi: komposisi,
@@ -100,16 +101,16 @@ export const updateObat = async(req, res) => {
     });
 
     if(!obat) return res.status(404).json({msg:"data tidak ditemukan"});
-    const { name, jenis, komposisi, kegunaan, efek } = req.body;
+    const { name, deskripsi, jenis, komposisi, kegunaan, efek } = req.body;
     if(req.role === "admin"){
-      await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+      await Obat.update({name, deskripsi, jenis, komposisi, kegunaan, efek},{
         where:{
           uuid: obat.uuid 
         }
       }); 
     }else{
       if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
-      await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+      await Obat.update({name, deskripsi, jenis, komposisi, kegunaan, efek},{
         where:{
           [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
         }
@@ -129,7 +130,7 @@ try {
       }
     });
     if(!obat) return res.status(404).json({msg:"data tidak ditemukan"});
-    const { name, jenis, komposisi, kegunaan, efek } = req.body;
+    const { name, deskripsi, jenis, komposisi, kegunaan, efek } = req.body;
     if(req.role === "admin"){
       await Obat.destroy({
         where:{
@@ -138,7 +139,7 @@ try {
       });
     }else{
           if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
-          await Obat.update({name, jenis, komposisi, kegunaan, efek},{
+          await Obat.update({name, deskripsi, jenis, komposisi, kegunaan, efek},{
             where:{
               [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
             }

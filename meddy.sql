@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jun 2023 pada 14.58
+-- Waktu pembuatan: 21 Jun 2023 pada 16.01
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 8.1.2
 
@@ -58,6 +58,7 @@ CREATE TABLE `obat` (
   `uuid` varchar(255) DEFAULT NULL,
   `gambar` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `deskripsi` varchar(255) NOT NULL,
   `jenis` varchar(255) DEFAULT NULL,
   `komposisi` varchar(255) DEFAULT NULL,
   `kegunaan` varchar(255) DEFAULT NULL,
@@ -71,12 +72,8 @@ CREATE TABLE `obat` (
 -- Dumping data untuk tabel `obat`
 --
 
-INSERT INTO `obat` (`id`, `uuid`, `gambar`, `name`, `jenis`, `komposisi`, `kegunaan`, `efek`, `userId`, `createdAt`, `updatedAt`) VALUES
-(37, '4bea3853-5ed1-47e7-9d45-5a8a027b8a7a', 'IL.jpg', 'obat admin', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '6908b944-28e8-4780-8c5f-cb2fffaa5538', '2023-06-10 06:09:25', '2023-06-10 06:09:25'),
-(42, '0a38d5ce-a301-4280-a03e-3931d6c8f9e0', 'IL.jpg', 'obat admin', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '6908b944-28e8-4780-8c5f-cb2fffaa5538', '2023-06-11 06:39:21', '2023-06-11 06:39:21'),
-(43, 'e528852f-be49-4918-a7ec-6cb8a65b5466', 'IL.jpg', 'obat apoteker', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '7e8e9c07-7856-4e27-b560-514f164b70d7', '2023-06-11 06:39:50', '2023-06-11 06:39:50'),
-(45, '4acdaf78-cc29-4788-8597-a5af9e11ae3e', 'IL.jpg', 'obat apoteker', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '6908b944-28e8-4780-8c5f-cb2fffaa5538', '2023-06-11 07:05:34', '2023-06-11 07:05:34'),
-(46, '90475914-2b18-4049-b159-f9d685977e41', 'IL.jpg', 'obat apoteker', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '6908b944-28e8-4780-8c5f-cb2fffaa5538', '2023-06-11 07:05:36', '2023-06-11 07:05:36');
+INSERT INTO `obat` (`id`, `uuid`, `gambar`, `name`, `deskripsi`, `jenis`, `komposisi`, `kegunaan`, `efek`, `userId`, `createdAt`, `updatedAt`) VALUES
+(47, 'c5194c95-451d-4ee7-ad6c-b281331d6421', 'IL.jpg', 'obat apoteker', 'iniii deskripsii', 'obat pil', 'bodrex tua', 'meredakan sakit kepala', 'ngantuk', '6908b944-28e8-4780-8c5f-cb2fffaa5538', '2023-06-21 13:54:17', '2023-06-21 13:54:17');
 
 -- --------------------------------------------------------
 
@@ -97,9 +94,10 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`sid`, `expires`, `data`, `createdAt`, `updatedAt`) VALUES
-('8OYbvR7CjefQr-ELdj0W9B_jIddNXLpp', '2023-06-11 06:10:41', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-06-10 06:10:41', '2023-06-10 06:10:41'),
-('dxsWAK-2C42-J1sM-8uOkIM2SfvWijhx', '2023-06-12 07:23:12', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-06-11 07:23:12', '2023-06-11 07:23:12'),
-('WlcQmBgyoA_WCthyDN11uKM-mWCLtonW', '2023-06-10 08:47:10', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"6908b944-28e8-4780-8c5f-cb2fffaa5538\"}', '2023-06-09 08:19:17', '2023-06-09 08:47:10');
+('0LZbTtjsWlWL2p8F4xqLtbq69KwT-5d5', '2023-06-16 01:30:24', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-06-15 01:30:06', '2023-06-15 01:30:24'),
+('IyuJtitKMqT13kDMNtNm2ZHIGiCMMPLq', '2023-06-15 06:52:48', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"6908b944-28e8-4780-8c5f-cb2fffaa5538\"}', '2023-06-14 06:11:34', '2023-06-14 06:52:48'),
+('siU3YLwYi43pKMAK9nAIsZSkt-ZPj26A', '2023-06-22 13:54:17', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"},\"userId\":\"6908b944-28e8-4780-8c5f-cb2fffaa5538\"}', '2023-06-21 13:54:05', '2023-06-21 13:54:17'),
+('x44XycXVLAQgBEREFskNsMKa_sszw4SZ', '2023-06-20 14:46:59', '{\"cookie\":{\"originalMaxAge\":null,\"expires\":null,\"secure\":false,\"httpOnly\":true,\"path\":\"/\"}}', '2023-06-17 05:17:39', '2023-06-19 14:46:59');
 
 -- --------------------------------------------------------
 
@@ -164,7 +162,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

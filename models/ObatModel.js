@@ -29,6 +29,13 @@ const Obat = db.define('obat',{
             len: [2, 100]
         }
     },
+    deskripsi:{
+        type: DataTypes.STRING,
+        allowNul: false,
+        validate:{
+            notEmpty: true,
+        }
+    },
     jenis:{
         type: DataTypes.STRING,
         allowNul: false,
