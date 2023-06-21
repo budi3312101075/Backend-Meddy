@@ -4,7 +4,7 @@ import argon2 from "argon2";
 export const getUsers = async(req, res) => {
     try {
         const response = await Users.findAll({
-            attributes:['uuid','name','email','role']
+            attributes:['id','uuid','name','email','role']
         });
         res.status(200).json(response);
     } catch (error) {
@@ -15,7 +15,7 @@ export const getUsers = async(req, res) => {
 export const getUserById = async(req, res) => {
     try {
         const response = await Users.findOne({
-            attributes:['uuid','name','email','role'],
+            attributes:['id','uuid','name','email','role'],
             where:{
             uuid: req.params.id
            } 
@@ -51,7 +51,7 @@ export const updateUser = async(req, res) => {
        } 
     });
     if(!Users) return res.status(404).json({msg: "User tidak ditemukan"});
-    const{name, email, password, confPassword, role} = req.body;
+    const{name, id, email, password, confPassword, role} = req.body;
     let hashPassword;
     if(password === "" || password === null){
         hashPassword = user.password
@@ -62,6 +62,7 @@ export const updateUser = async(req, res) => {
     try {
         await Users.update({
             name: name,
+            id: id,
             email: email,
             password: hashPassword,
             role: role

@@ -28,7 +28,8 @@ PATCH  http://localhost:5000/users/50e8493e-2b1e-4aca-8d1a-3b8ee9acf4a8
 Content-Type: application/json
 
 {
-    "name": "apotek143",
+    "id": 6289519113444,
+    "name": "apotek",
     "email": "apotek143@gmail.com",
     "password": "apotek143",
     "confPassword": "apotek143",
