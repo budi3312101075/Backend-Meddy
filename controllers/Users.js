@@ -87,7 +87,7 @@ export const deleteUser = async(req, res) => {
     try {
         await Users.destroy({
             where:{
-                id: user.id
+                uuid: user.uuid
             }
         });
         res.status(200).json({msg: "User Deleted"});
