@@ -15,7 +15,7 @@ export const getUsers = async(req, res) => {
 export const getUserById = async(req, res) => {
     try {
         const response = await Users.findOne({
-            attributes:['id','uuid','name','email','role'],
+            attributes:['id','uuid','name','password','email','role'],
             where:{
             uuid: req.params.id
            } 
