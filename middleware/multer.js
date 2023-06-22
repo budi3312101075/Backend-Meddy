@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         // validatin mime type in here
       const uniqueSuffix = Date.now().toString()
-      cb(null, uniqueSuffix + "_" + file.originalname)
+      cb(null, file.originalname)
 
     //   false 
     }
