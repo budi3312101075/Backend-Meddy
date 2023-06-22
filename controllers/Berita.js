@@ -101,7 +101,7 @@ export const deleteBerita = async(req, res) => {
           });
         }else{
               if (req.session.userId !== berita.userId) return res.status(403).json({msg: "akses terlarang"});
-              await Berita.update({name, jenis, komposisi, kegunaan, efek},{
+              await Berita.destroy({
                 where:{
                   [Op.and]:[{uuid: berita.uuid}, {userId: req.session.userId}],
                 }

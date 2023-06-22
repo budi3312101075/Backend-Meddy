@@ -139,7 +139,7 @@ try {
       });
     }else{
           if (req.session.userId !== obat.userId) return res.status(403).json({msg: "akses terlarang"});
-          await Obat.update({name, deskripsi, jenis, komposisi, kegunaan, efek},{
+          await Obat.destroy({
             where:{
               [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
             }
