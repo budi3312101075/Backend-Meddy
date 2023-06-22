@@ -94,7 +94,7 @@ GET http://localhost:5000/obat/e528852f-be49-4918-a7ec-6cb8a65b5466
 
 ###
 //menghapus data obat
-DELETE http://localhost:5000/obat/4bea3853-5ed1-47e7-9d45-5a8a027b8a7a
+DELETE http://localhost:5000/obat/2afec40f-85d5-431b-8723-627c44cc9ca9
 
 
 ###
@@ -109,7 +109,7 @@ GET http://localhost:5000/berita/7d59e76e-107d-4272-89ba-fe7e2d5744d8
 
 ###
 //menghapus data berita
-DELETE http://localhost:5000/berita/7d59e76e-107d-4272-89ba-fe7e2d5744d8
+DELETE http://localhost:5000/berita/6ab3802b-3a8a-4dab-96ab-4269104b1b2e
 
 
 
