@@ -8,14 +8,14 @@ export const getObat = async(req, res) => {
     let response;
     if(req.role === "admin"){
       response = await Obat.findAll({
-        attributes:['uuid', 'gambar', 'name', 'jenis','komposisi','kegunaan','efek'],
+        attributes:['uuid', 'gambar', 'name', 'deskripsi', 'jenis','komposisi','kegunaan','efek'],
         // include:[{
         //   model:Users
         // }]
       });
     }else{
       response = await Obat.findAll({
-        attributes:['uuid', 'gambar', 'name', 'jenis','komposisi','kegunaan','efek'],
+        attributes:['uuid', 'gambar', 'name', 'deskripsi', 'jenis','komposisi','kegunaan','efek'],
         where:{
           userId: req.session.userId
         },
@@ -41,14 +41,14 @@ export const getObatById = async(req, res) => {
     let response;
     if(req.role === "admin"){
       response = await Obat.findOne({
-        attributes:['uuid', 'gambar', 'name', 'jenis','komposisi','kegunaan','efek'],
+        attributes:['uuid', 'gambar', 'name', 'deskripsi', 'jenis','komposisi','kegunaan','efek'],
         where:{
           uuid: obat.uuid
         },
       });
     }else{
       response = await Obat.findOne({
-        attributes:['uuid', 'gambar', 'name', 'jenis','komposisi','kegunaan','efek'],
+        attributes:['uuid', 'gambar', 'name', 'deskripsi', 'jenis','komposisi','kegunaan','efek'],
         where:{
           [Op.and]:[{uuid: obat.uuid}, {userId: req.session.userId}],
         },
