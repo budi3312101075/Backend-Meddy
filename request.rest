@@ -5,7 +5,7 @@ Content-Type: application/json
 {
     "id": 8347334667,
     "name": "apoteker",
-    "email": "apoteker@gmail.com",
+    "email": "yandrayt2@gmail.com",
     "password": "apoteker",
     "confPassword": "apoteker",
     "role": "apoteker"
@@ -94,6 +94,7 @@ GET http://localhost:5000/obat/9d110c12-5099-4d1c-bc21-7ead777c68f6
 
 ###
 //menghapus data obat
+DELETE http://localhost:5000/obat/2afec40f-85d5-431b-8723-627c44cc9ca9
 DELETE http://localhost:5000/obat/9d110c12-5099-4d1c-bc21-7ead777c68f6
 
 
