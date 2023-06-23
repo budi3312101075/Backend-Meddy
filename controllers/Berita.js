@@ -80,8 +80,34 @@ export const createBerita = async (req, res) => {
         }
 };
 
-export const updateBerita = (req, res) => {
- 
+export const updateBerita = async(req, res) => {
+  try {
+    const berita = await Berita.findOne({
+      where:{
+        uuid: req.params.id
+      }
+    });
+
+    if(!berita) return res.status(404).json({msg:"data tidak ditemukan"});
+    const { judul, title } = req.body;
+    if(req.role === "admin"){
+      await Berita.update({judul, title},{
+        where:{
+          uuid: berita.uuid 
+        }
+      }); 
+    }else{
+      if (req.session.userId !== berita.userId) return res.status(403).json({msg: "akses terlarang"});
+      await Berita.update({judul, title},{
+        where:{
+          [Op.and]:[{uuid: berita.uuid}, {userId: req.session.userId}],
+        }
+      });
+    }
+    res.status(200).json({msg: "berita sukses diupdate"});
+  } catch (error) {
+    res.status(500).json({msg: error.message});
+  }
 }
 
 export const deleteBerita = async(req, res) => {

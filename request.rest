@@ -109,7 +109,7 @@ GET http://localhost:5000/berita/c2caf9fd-599d-492b-959c-db0480fc817e
 
 ###
 //menghapus data berita
-DELETE http://localhost:5000/berita/c2caf9fd-599d-492b-959c-db0480fc817e
+DELETE http://localhost:5000/berita/ec0aa299-9cdf-4b73-b117-c4d74fb71f41
 
 
 
