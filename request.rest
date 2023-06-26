@@ -126,10 +126,10 @@ GET http://localhost:5000/obats/90475914-2b18-4049-b159-f9d685977e41
 
 
 ###
-//get data obat all tanpa loginn
+//get data berita all tanpa loginn
 GET http://localhost:5000/beritas
 
 
 ###
-//get data obat all tanpa login ngambil berdasarkan id
+//get data berita all tanpa login ngambil berdasarkan id
 GET http://localhost:5000/beritas/c2b007a5-bc22-4a9f-8af5-d967ee2cb989
