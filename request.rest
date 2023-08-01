@@ -1,4 +1,4 @@
-//API Create a user
+//API Create a userr
 POST http://localhost:5000/users
 Content-Type: application/json
 
